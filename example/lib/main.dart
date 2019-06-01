@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:paytm/paytm.dart';
 
@@ -13,34 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String payment_response = '';
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-
-    generateCheckSum();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await Paytm.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
   }
 
   @override
@@ -48,10 +22,28 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Paytm example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Running on: $payment_response\n'),
+              RaisedButton(
+                onPressed: () {
+                  //Firstly Generate CheckSum bcoz Paytm Require this
+                  generateCheckSum();
+                },
+                color: Colors.blue,
+                child: Text(
+                  "Pay Now",
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -62,6 +54,9 @@ class _MyAppState extends State<MyApp> {
         'https://us-central1-mrdishant-4819c.cloudfunctions.net/generateCheckSum';
 
     String orderId = DateTime.now().millisecondsSinceEpoch.toString();
+
+    //Please use your parameters here
+    //CHANNEL_ID etc provided to you by paytm
 
     final response = await http.post(url, headers: {
       "Content-Type": "application/x-www-form-urlencoded"
@@ -76,11 +71,34 @@ class _MyAppState extends State<MyApp> {
       'CUST_ID': '122',
     });
 
+    //for Testing(Stagging) use this
+
+    //https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=
+
+    //https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=
+
     String callBackUrl =
         'https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=' +
             orderId;
 
     print("Response :" + response.body);
+
+    //Parameters are like as per given below
+
+    // Testing (Staging or Production) if true then Stagginh else Production
+    // MID provided by paytm
+    // ORDERID your system generated order id
+    // CUSTOMER ID
+    // CHANNEL_ID provided by paytm
+    // AMOUNT
+    // WEBSITE provided by paytm
+    // CallbackURL (As used above)
+    // INDUSTRY_TYPE_ID provided by paytm
+    // checksum generated now
+
+    //Testing Credentials
+    //Mobile number: 7777777777
+    //OTP: 489871
 
     var paytmResponse = Paytm.startPaytmPayment(
         true,
@@ -95,7 +113,9 @@ class _MyAppState extends State<MyApp> {
         response.body);
 
     paytmResponse.then((value) {
-      print(value.toString());
+      setState(() {
+        payment_response = value.toString();
+      });
     });
   }
 }

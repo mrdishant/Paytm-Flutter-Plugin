@@ -1,8 +1,8 @@
 name: paytm
 description: A new Flutter plugin.
-version: 0.0.1
+version: 0.0.4
 author: "Dishant Mahajan <mr.dishantmahajan@gmail.com>"
-homepage: "https://mrdishant.com/"
+homepage: "https://github.com/mrdishant/Paytm-Flutter-Plugin"
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"

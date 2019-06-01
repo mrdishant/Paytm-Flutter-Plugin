@@ -21,6 +21,7 @@ import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
 /**
  * PaytmPlugin
+ * by Mr Dishant Mahajan
  */
 public class PaytmPlugin implements MethodCallHandler {
     /**
@@ -48,9 +49,7 @@ public class PaytmPlugin implements MethodCallHandler {
 
         this.result = result;
 
-        if (call.method.equals("getPlatformVersion")) {
-            result.success("Android " + android.os.Build.VERSION.RELEASE);
-        } else if (call.method.equals("startPaytmPayment")) {
+        if (call.method.equals("startPaytmPayment")) {
 
             boolean testing = call.argument("testing");
             String mId = call.argument("mId").toString();
@@ -103,7 +102,7 @@ public class PaytmPlugin implements MethodCallHandler {
 
         //creating a hashmap and adding all the values required
 
-        Map<String, String> paramMap = new HashMap<>();
+        HashMap<String, String> paramMap = new HashMap<>();
         paramMap.put("MID", mId);
         paramMap.put("ORDER_ID", orderId);
         paramMap.put("CUST_ID", custId);
@@ -146,8 +145,6 @@ public class PaytmPlugin implements MethodCallHandler {
 
             @Override
             public void networkNotAvailable() {
-//        Log.i(TAG, "networknotavailable");
-//                Toast.makeText(activity, "Network error", Toast.LENGTH_LONG).show();
                 Map<String, Object> paramMap = new HashMap<>();
 
                 paramMap.put("error", true);
@@ -158,8 +155,7 @@ public class PaytmPlugin implements MethodCallHandler {
 
             @Override
             public void clientAuthenticationFailed(String s) {
-//        Log.i(TAG, s);
-//                Toast.makeText(activity, s, Toast.LENGTH_LONG).show();
+
                 Map<String, Object> paramMap = new HashMap<>();
 
                 paramMap.put("error", true);
@@ -170,8 +166,7 @@ public class PaytmPlugin implements MethodCallHandler {
 
             @Override
             public void someUIErrorOccurred(String s) {
-//        Log.i(TAG, s);
-//                Toast.makeText(activity, s, Toast.LENGTH_LONG).show();
+
                 Map<String, Object> paramMap = new HashMap<>();
 
                 paramMap.put("error", true);
@@ -183,8 +178,6 @@ public class PaytmPlugin implements MethodCallHandler {
 
             @Override
             public void onErrorLoadingWebPage(int i, String s, String s1) {
-//        Log.i(TAG, s + s1.toString());
-//                Toast.makeText(activity, s, Toast.LENGTH_LONG).show();
 
                 Map<String, Object> paramMap = new HashMap<>();
 
@@ -196,7 +189,6 @@ public class PaytmPlugin implements MethodCallHandler {
 
             @Override
             public void onBackPressedCancelTransaction() {
-//                Toast.makeText(activity, "Back Pressed Transaction Cancelled", Toast.LENGTH_LONG).show();
 
                 Map<String, Object> paramMap = new HashMap<>();
 
