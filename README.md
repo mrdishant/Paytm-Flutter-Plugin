@@ -4,11 +4,7 @@ A Flutter plugin to use the Paytm as a gateway for accepting online paymnets in 
 
 ## Getting Started
 
-![Screenshot_20190601-141441(1)](https://user-images.githubusercontent.com/25786428/58746425-ad9b7100-847b-11e9-97bd-6d820fb6d03c.jpg)
-
-![Screenshot_20190601-141450(1)](https://user-images.githubusercontent.com/25786428/58746429-b12ef800-847b-11e9-9ab1-2622a7312838.jpg)
-
-![Screenshot_20190601-141512](https://user-images.githubusercontent.com/25786428/58746430-b4c27f00-847b-11e9-88e6-6b1ea4d2b7c1.jpg)
+![Screenshot_20190601-141441(1)](https://user-images.githubusercontent.com/25786428/58746425-ad9b7100-847b-11e9-97bd-6d820fb6d03c.jpg)      ![Screenshot_20190601-141512](https://user-images.githubusercontent.com/25786428/58746430-b4c27f00-847b-11e9-88e6-6b1ea4d2b7c1.jpg)
 
 
 ### Testing Credentials:
