@@ -8,12 +8,16 @@ A Flutter plugin to use the Paytm as a gateway for accepting online paymnets in 
 
 ### Testing Credentials:
 MID : ParloS79006455919746
+
 CHANNEL_ID: WAP
+
 INDUSTRY_TYPE_ID: Retail
+
 WEBSITE: APPSTAGING
+
 PAYTM_MERCHANT_KEY: 380W#7mf&_SpEgsy
 
-Lets’s begin
+##### Lets’s begin
 
 You can start paytm transaction following two steps:
 
@@ -40,7 +44,6 @@ final response = await http.post(url, headers: {
   'CUST_ID': '122',
 });
 ```
-
 
 Replace the values with merchant account your values , and in response you will get checksum.
 
@@ -76,7 +79,27 @@ paytmResponse.then((value) {
 });
 ```
 
+Parameters are like as per given below
 
+1.Testing (Staging or Production) if true then Stagging else Production
+
+2. MID provided by paytm
+
+3. ORDERID your system generated order id
+
+4. CUSTOMER ID
+
+5. CHANNEL_ID provided by paytm
+
+6. AMOUNT
+
+7. WEBSITE provided by paytm
+
+8. CallbackURL (As discussed above)
+
+9. INDUSTRY_TYPE_ID provided by paytm
+
+10. checksum generated now
 
 For Cloning the example app code visit:
 [Paytm Plugin](https://github.com/mrdishant/Paytm-Flutter-Plugin)
