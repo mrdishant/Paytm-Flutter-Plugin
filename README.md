@@ -4,7 +4,12 @@ A Flutter plugin to use the Paytm as a gateway for accepting online paymnets in 
 
 ## Getting Started
 
-![Screenshot_20190601-141441](https://user-images.githubusercontent.com/25786428/58746334-d66f3680-847a-11e9-85b0-804d42207f12.jpg)![Screenshot_20190601-141450](https://user-images.githubusercontent.com/25786428/58746336-d707cd00-847a-11e9-80ce-4e7814a43ddb.jpg)![Screenshot_20190601-141512](https://user-images.githubusercontent.com/25786428/58746340-e555e900-847a-11e9-8796-1df156751652.jpg)
+![Screenshot_20190601-141441(1)](https://user-images.githubusercontent.com/25786428/58746425-ad9b7100-847b-11e9-97bd-6d820fb6d03c.jpg)
+
+![Screenshot_20190601-141450(1)](https://user-images.githubusercontent.com/25786428/58746429-b12ef800-847b-11e9-9ab1-2622a7312838.jpg)
+
+![Screenshot_20190601-141512](https://user-images.githubusercontent.com/25786428/58746430-b4c27f00-847b-11e9-88e6-6b1ea4d2b7c1.jpg)
+
 
 ### Testing Credentials:
 MID : ParloS79006455919746
@@ -17,11 +22,11 @@ WEBSITE: APPSTAGING
 
 PAYTM_MERCHANT_KEY: 380W#7mf&_SpEgsy
 
-##### Lets’s begin
+### Lets’s begin
 
 You can start paytm transaction following two steps:
 
-#### 1.Generate CheckSum:
+#### 1. Generate CheckSum:
 
 You have to setup CheckSum Generation on your server ideally. But for testing purpose you can use the below api and request it and it will provide you checksum for your transaction.
 
@@ -83,29 +88,29 @@ Parameters are like as per given below
 
 1.Testing (Staging or Production) if true then Stagging else Production
 
-2. MID provided by paytm
+2.MID provided by paytm
 
-3. ORDERID your system generated order id
+3.ORDERID your system generated order id
 
-4. CUSTOMER ID
+4.CUSTOMER ID
 
-5. CHANNEL_ID provided by paytm
+5.CHANNEL_ID provided by paytm
 
-6. AMOUNT
+6.AMOUNT
 
-7. WEBSITE provided by paytm
+7.WEBSITE provided by paytm
 
-8. CallbackURL (As discussed above)
+8.CallbackURL (As discussed above)
 
-9. INDUSTRY_TYPE_ID provided by paytm
+9.INDUSTRY_TYPE_ID provided by paytm
 
-10. checksum generated now
+10.checksum generated now
 
 For Cloning the example app code visit:
 [Paytm Plugin](https://github.com/mrdishant/Paytm-Flutter-Plugin)
 
 For detailed usage visit :
-[Paytm Plugin](https://medium.com/@mr.dishantmahajan/paytm-plugin-flutter-paytm-4aa144da4fd4)
+[Paytm Medium Post](https://medium.com/@mr.dishantmahajan/paytm-plugin-flutter-paytm-4aa144da4fd4)
 
 For any query :
 Mail me at mr.dishantmahajan@gmail.com
